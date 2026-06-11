@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/../core/Controller.php';
-require_once __DIR__ . '/../models/Empleado.php';
-require_once __DIR__ . '/../models/Cargo.php';
+require_once __DIR__ . '/../models/Producto.php';
+require_once __DIR__ . '/../models/Categoria.php';
 
-class EmpleadosController extends Controller {
+class ProductosController extends Controller {
 
     public function index(): void {
         $this->reporte();
@@ -19,13 +19,13 @@ class EmpleadosController extends Controller {
 
         $this->soloSuperAdmin();
 
-        $producto = new Empleado();
-        $categoria = new Cargo();
+        $producto = new Producto();
+        $categoria = new Categoria();
 
         $productos = $producto->obtenerProductos();
         $categorias = $categoria->obtenerCargos(); // o obtenerCategorias()
 
-        $this->view('empleados/reportes', [
+        $this->view('productos/reportes', [
             'usuario'    => $_SESSION['usuario'],
             'productos'  => $productos,
             'categorias' => $categorias
@@ -41,7 +41,7 @@ class EmpleadosController extends Controller {
 
         $id = $_POST['id'];
 
-        $producto = new Empleado();
+        $producto = new Producto();
         $resultado = $producto->eliminarPorIdProducto($id);
 
         header('Content-Type: application/json');
@@ -56,10 +56,10 @@ class EmpleadosController extends Controller {
             exit();
         }
 
-        $categoria = new Cargo();
+        $categoria = new Categoria();
         $categorias = $categoria->obtenerCargos();
 
-        $this->view('empleados/registro', [
+        $this->view('productos/registro', [
             'usuario' => $_SESSION['usuario'],
             'categorias' => $categorias
         ]);
@@ -68,7 +68,7 @@ class EmpleadosController extends Controller {
     // ================= EDITAR =================
     public function editar(): void {
 
-        $producto = new Empleado();
+        $producto = new Producto();
 
         $resultado = $producto->editarProducto([
             'IDproducto'     => $_POST['IDproducto'],
@@ -88,7 +88,7 @@ class EmpleadosController extends Controller {
     // ================= GUARDAR =================
     public function guardar(): void {
 
-        $producto = new Empleado();
+        $producto = new Producto();
 
         $resultado = $producto->guardarProducto([
             'nombre'         => $_POST['nombre'],
@@ -101,9 +101,9 @@ class EmpleadosController extends Controller {
         ]);
 
         if ($resultado) {
-            header('Location: ' . BASE_URL . '/empleados/reportes');
+            header('Location: ' . BASE_URL . '/productos/reportes');
         } else {
-            header('Location: ' . BASE_URL . '/empleados/registro');
+            header('Location: ' . BASE_URL . '/productos/registro');
         }
     }
 }

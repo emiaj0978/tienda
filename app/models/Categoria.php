@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../core/Database.php';
 
-class Cargo {
+class Categoria {
 
     private PDO $db;
 

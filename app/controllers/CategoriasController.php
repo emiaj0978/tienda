@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/../core/Controller.php';
-require_once __DIR__ . '/../models/Cargo.php';
+require_once __DIR__ . '/../models/Categoria.php';
 
-class CargosController extends Controller {
+class CategoriasController extends Controller {
 
     public function index(): void {
         $this->reporte();
@@ -18,10 +18,10 @@ class CargosController extends Controller {
 
         $this->soloSuperAdmin();
 
-        $categoria = new Cargo();
+        $categoria = new Categoria();
         $categorias = $categoria->obtenerCategorias();
 
-        $this->view('cargos/reportes', [
+        $this->view('categorias/reportes', [
             'usuario'    => $_SESSION['usuario'],
             'categorias' => $categorias
         ]);
@@ -36,7 +36,7 @@ class CargosController extends Controller {
 
         $id = $_POST['id'];
 
-        $categoria = new Cargo();
+        $categoria = new Categoria();
         $resultado = $categoria->eliminarCategoria($id);
 
         header('Content-Type: application/json');
@@ -51,7 +51,7 @@ class CargosController extends Controller {
             exit();
         }
 
-        $this->view('cargos/registro', [
+        $this->view('categorias/registro', [
             'usuario' => $_SESSION['usuario']
         ]);
     }
@@ -59,7 +59,7 @@ class CargosController extends Controller {
     // ================= EDITAR =================
     public function editar(): void {
 
-        $categoria = new Cargo();
+        $categoria = new Categoria();
 
         $resultado = $categoria->editarCategoria([
             'IDcategoria'      => $_POST['IDcategoria'],
@@ -74,7 +74,7 @@ class CargosController extends Controller {
     // ================= GUARDAR =================
     public function guardar(): void {
 
-        $categoria = new Cargo();
+        $categoria = new Categoria();
 
         $resultado = $categoria->guardarCategoria([
             'nombre_categoria' => $_POST['nombre_categoria'],
@@ -82,9 +82,9 @@ class CargosController extends Controller {
         ]);
 
         if ($resultado) {
-            header('Location: ' . BASE_URL . '/cargos/reportes');
+            header('Location: ' . BASE_URL . '/categorias/reportes');
         } else {
-            header('Location: ' . BASE_URL . '/cargos/registro');
+            header('Location: ' . BASE_URL . '/categorias/registro');
         }
     }
 }

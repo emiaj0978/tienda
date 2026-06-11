@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__ . '/../core/Database.php';
 
-class Empleado {
+class Producto {
 
     private PDO $db;
 

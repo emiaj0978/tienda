@@ -38,19 +38,19 @@ $esSuperAdmin = ($_SESSION['usuario']['roles'] ?? '') === 'superadmin';
         <?php if ($esSuperAdmin): ?>
             
         <!-- ================ START EMPLEADOS ================ -->
-        <li class="<?php echo $rutaActual === 'empleados' ? 'dropdown show' : 'dropdown'; ?>">
-            <a href="#" class="dropbtn <?php echo $rutaActual === 'empleados' ? 'activo' : ''; ?>">
+        <li class="<?php echo $rutaActual === 'productos' ? 'dropdown show' : 'dropdown'; ?>">
+            <a href="#" class="dropbtn <?php echo $rutaActual === 'productos' ? 'activo' : ''; ?>">
                 <i class="fa-solid fa-clipboard-list"></i>
                 <span>Producto</span>
                 <i class="fa-solid fa-chevron-down arrow"></i>
             </a>
             <div class="dropdown-content">
-                <a href="<?php echo BASE_URL; ?>/empleados/reportes"
-                    class="<?php echo $rutaActual === 'empleados/reportes' ? 'activo' : ''; ?>">
+                <a href="<?php echo BASE_URL; ?>/productos/reportes"
+                    class="<?php echo $rutaActual === 'productos/reportes' ? 'activo' : ''; ?>">
                     <i class="fa-solid fa-users"></i>
                     Productos
                 </a>
-                <a href="<?php echo BASE_URL; ?>/empleados/registro">
+                <a href="<?php echo BASE_URL; ?>/productos/registro">
                     <i class="fa-solid fa-edit"></i>
                     Agregar productos
                 </a>
@@ -59,19 +59,19 @@ $esSuperAdmin = ($_SESSION['usuario']['roles'] ?? '') === 'superadmin';
         <!-- ================ END EMPLEADOS ================ -->
 
         <!-- ================ START CARGOS ================ -->
-        <li class="<?php echo $rutaActual === 'cargos' ? 'dropdown show' : 'dropdown'; ?>">
-            <a href="#" class="dropbtn <?php echo $rutaActual === 'cargos' ? 'activo' : ''; ?>">
+        <li class="<?php echo $rutaActual === 'categorias' ? 'dropdown show' : 'dropdown'; ?>">
+            <a href="#" class="dropbtn <?php echo $rutaActual === 'categorias' ? 'activo' : ''; ?>">
                 <i class="fa-solid fa-briefcase"></i>
                 <span>Categoria</span>
                 <i class="fa-solid fa-chevron-down arrow"></i>
             </a>
             <div class="dropdown-content">
-                <a href="<?php echo BASE_URL; ?>/cargos/reportes"
-                    class="<?php echo $rutaActual === '/cargos/reportes' ? 'activo' : ''; ?>">
+                <a href="<?php echo BASE_URL; ?>/categorias/reportes"
+                    class="<?php echo $rutaActual === '/categorias/reportes' ? 'activo' : ''; ?>">
                     <i class="fa-solid fa-clipboard-list"></i>
                     Categorias
                 </a>
-                <a href="<?php echo BASE_URL; ?>/cargos/registro">
+                <a href="<?php echo BASE_URL; ?>/categorias/registro">
                     <i class="fa-solid fa-edit"></i>
                     Agregar categorias
                 </a>
