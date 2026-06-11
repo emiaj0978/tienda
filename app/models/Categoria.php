@@ -22,6 +22,7 @@ class Categoria {
     $sql = "SELECT COUNT(*) AS total
             FROM Producto
             WHERE IDcategoria = ?";
+            
     $stmt = $this->db->prepare($sql);
     $stmt->execute([$id]);
     $fila = $stmt->fetch();
