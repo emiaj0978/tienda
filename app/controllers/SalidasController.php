@@ -17,8 +17,8 @@ class SalidasController extends Controller {
         $this->soloSuperAdmin();
 
         // Cargamos el modelo y obtenemos los datos de empleados.
-        require_once __DIR__ . '/../models/Empleado.php';
-        $modelo = new Empleado();
+        require_once __DIR__ . '/../models/Producto.php';
+        $modelo = new Producto();
         $variable_empleados = $modelo->obtenerEmpleados();
 
         

@@ -14,9 +14,9 @@ class DashboardController extends Controller {
             exit;
         }
 
-        require_once __DIR__ . '/../models/Empleado.php';
+        require_once __DIR__ . '/../models/Producto.php';
 
-        $producto = new Empleado();
+        $producto = new Producto();
 
         $productosBajoStock = $producto->obtenerBajoStock();
         $totalBajoStock = count($productosBajoStock);

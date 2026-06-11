@@ -6,9 +6,9 @@ class AsistenciasController extends Controller {
         $this->view('asistencias/index');
     }
     public function buscar(): void{
-        require_once __DIR__ . '/../models/Empleado.php';
+        require_once __DIR__ . '/../models/Producto.php';
         $qrs = $_POST['qrs'];
-        $producto = new Empleado();
+        $producto = new Producto();
         $resultado = $producto->buscarPorQr($qrs);
         header('Content-Type: application/json');
         if($resultado){
