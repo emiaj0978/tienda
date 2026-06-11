@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let id = this.dataset.id;
 
-            fetch(BASE_URL + "/empleados/eliminar", {
+            fetch(BASE_URL + "/productos/eliminar", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: "id=" + id
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             IDcategoria: document.getElementById("edit-categoria").value
         });
 
-        fetch(BASE_URL + "/empleados/editar", {
+        fetch(BASE_URL + "/productos/editar", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: body.toString()
