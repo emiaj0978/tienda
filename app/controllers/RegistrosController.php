@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../core/Controller.php';
-class AsistenciasController extends Controller {
+class RegistrosController extends Controller {
 
     public function index(): void {
         $this->view('asistencias/index');
@@ -24,9 +24,9 @@ class AsistenciasController extends Controller {
     }
 
     public function registradito(): void{
-        require_once __DIR__ . '/../models/Asistencia.php';
+        require_once __DIR__ . '/../models/Registros.php';
         $idProducto = $_POST['id_producto'];
-        $asistencia = new Asistencia();
+        $asistencia = new Registros();
         $asistencia->registrar($idProducto);
         header('Content-Type: application/json');
         echo json_encode([
@@ -35,13 +35,13 @@ class AsistenciasController extends Controller {
     }
 
     public function guardarVenta(): void{
-        require_once __DIR__ . '/../models/Asistencia.php';
+        require_once __DIR__ . '/../models/Registros.php';
         $productos = json_decode(
         file_get_contents("php://input"),
         true
     );
 
-    $asistencia = new Asistencia();
+    $asistencia = new Registros();
         foreach($productos as $producto){
         $asistencia->registrar(
         $producto['IDproducto']
