@@ -81,14 +81,6 @@ class Producto {
         return ['ok' => true, 'mensaje' => 'Producto actualizado'];
     }
 
-    // ================= BUSCAR POR QR =================
-    public function buscarPorQr(string $qrs){
-        $sql = "SELECT * FROM Producto WHERE qrs = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$qrs]);
-        return $stmt->fetch();   
-    }
-
     public function obtenerEmpleados(): array {
         $sql = "SELECT p.*, c.nombre_categoria
                 FROM Producto p
@@ -98,6 +90,15 @@ class Producto {
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+
+    // ================= BUSCAR POR QR =================
+    public function buscarPorQr(string $qrs){
+        $sql = "SELECT * FROM Producto WHERE qrs = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$qrs]);
+        return $stmt->fetch();   
     }
 
     public function obtenerBajoStock(): array{
